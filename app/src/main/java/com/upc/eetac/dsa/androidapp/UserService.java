@@ -6,6 +6,7 @@ import java.util.List;
 
 import models.Credentials;
 import models.User;
+import models.Object;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -31,7 +32,13 @@ public interface UserService {
 
     @DELETE("user/borrarUsuario")
     Call<User> deleteUser(@Body String user);
-/*
+
+    @GET ("tienda/catalogo")
+    Call<List<Object>> getObjetosTienda();
+
+    @GET ("tienda/getInventario/{username}")
+    Call<List<Object>> getObjetosUser(@Path("username") String username);
+    /*
     @PATCH("/dsaApp/{userID}/UpdateMonedas")
     Call<User> updateCoins(@Path("userID") String userID,@Body User user);
 

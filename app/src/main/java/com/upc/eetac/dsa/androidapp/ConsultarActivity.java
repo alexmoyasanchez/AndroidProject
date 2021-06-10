@@ -26,24 +26,22 @@ public class ConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar);
 
-        resultadoID=findViewById(R.id.resultadoID);
-        resultadoUsername=findViewById(R.id.resultadoUsername);
-        resultadoCorreo=findViewById(R.id.resultadoCorreo);
-        resultadoMonedas=findViewById(R.id.resultadoMonedas);
+        resultadoUsername=findViewById(R.id.resultadoConsultaUsername);
+        resultadoCorreo=findViewById(R.id.resultadoConsultaCorreo);
+        resultadoMonedas=findViewById(R.id.resultadoConsultaMonedas);
 
-        Username=findViewById(R.id.Username);
+        Username=findViewById(R.id.usernameConsulta);
 
     }
 
-    public void consultarUser (View view){
-        Call<User> call = ClientAPI.getUserService().getUser(Username.getText().toString());
+    public void Consultar (View view){
 
+        Call<User> call = ClientAPI.getUserService().getUser(Username.getText().toString());
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.code()==201){
 
-                    resultadoID.setText(response.body().getIdUser());
                     resultadoUsername.setText(response.body().getUsername());
                     resultadoCorreo.setText(response.body().getEmail());
                     resultadoMonedas.setText(response.body().getMonedas());

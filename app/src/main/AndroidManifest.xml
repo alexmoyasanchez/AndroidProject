@@ -3,6 +3,7 @@
     package="com.upc.eetac.dsa.androidapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PocimaRojaActivity"></activity>
+        <activity android:name=".DetalleObjetoActivity"></activity>
+        <activity android:name=".PocimaRojaActivity" />
         <activity android:name=".PocimaAzulActivity" />
         <activity android:name=".ManzanaActivity" />
         <activity android:name=".FlechaOroActivity" />

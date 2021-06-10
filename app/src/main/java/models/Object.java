@@ -6,6 +6,8 @@ public class Object {
     int coste;
     String idObjeto;
     String idUsuario;
+    String avatar;
+    String descripcion;
 
 
 
@@ -48,5 +50,21 @@ public class Object {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

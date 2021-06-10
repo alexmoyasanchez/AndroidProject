@@ -27,7 +27,6 @@ public class LogInActivity extends AppCompatActivity {
     EditText uname;
     EditText pswrd;
     Button signUpButton,loginButton;
-    TextView txtUser,txtPass;
 
     ProgressBarDialog loadingPB = new ProgressBarDialog(LogInActivity.this);
 
@@ -90,13 +89,6 @@ public class LogInActivity extends AppCompatActivity {
         String user = preferences.getString("user","No existe info");
         String pass = preferences.getString("pass","No existe info");
 
-        txtUser.setText(user);
-        txtPass.setText(pass);
-
-    }
-
-    public void buttonGuardar(View view){
-        guardarPreferencias();
     }
 
     public void guardarPreferencias(){
@@ -110,9 +102,6 @@ public class LogInActivity extends AppCompatActivity {
         editor.putString("user",usuario);
         editor.putString("pass", password);
 
-        txtUser.setText(usuario);
-        txtPass.setText(password);
-
         editor.commit();
     }
 
@@ -124,7 +113,7 @@ public class LogInActivity extends AppCompatActivity {
         pswrd = (EditText) findViewById(R.id.password);
         String username = uname.getText().toString();
         String password = pswrd.getText().toString();
-
+        guardarPreferencias();
         startActivity(intent);
 
         Call<Credentials> call = userAPI.loginUser(new Credentials(username, password));
@@ -136,8 +125,8 @@ public class LogInActivity extends AppCompatActivity {
                     Credentials credentials = response.body();
                     String pswrd = credentials.getPassword();
                     String uname = credentials.getUsername();
-                    //Integer id = credentials.getIdUser();
                     Log.d("Usuario", uname + " " + pswrd + " ");
+                    startActivity(intent);
                 }
 
                 else {

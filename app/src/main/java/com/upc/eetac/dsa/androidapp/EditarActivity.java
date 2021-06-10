@@ -46,25 +46,25 @@ public class EditarActivity extends AppCompatActivity {
             }
         });
 
-    } /*
+    }
+
     public void deleteUser (View view)
     {
         Call<User> call = ClientAPI.getUserService().deleteUser(username.getText().toString());
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<User>(){
+
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.code() == 201) {
                     Log.i("", "El código es: " + response.code());
                 }
-
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
 
             }
-        }
-
-    }*/
+        });
+    }
 
 }
